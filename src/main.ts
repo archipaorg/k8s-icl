@@ -62,11 +62,3 @@ dlRepo(K8S_SCHEMAS_REPO, schemaFolder).then(() => {
     console.log(e);
     Rimraf.sync(schemaFolder);
 });
-
-// for k8s-icl project
-
-// TODO add arguments to ICL mixins (0.5h)
-
-
-// for archipa project
-// TODO consider adding kubernetes version for k8s compilation (1h)
