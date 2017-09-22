@@ -1,0 +1,23 @@
+{
+  "name": "k8s-icl",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "rm -rf ./dist/* && tsc -p ./src && node ./dist/main.js"
+  },
+  "devDependencies": {
+    "@types/mkdirp": "^0.5.1",
+    "@types/node": "^8.0.20",
+    "@types/recursive-readdir": "^1.2.29",
+    "@types/rimraf": "^2.0.2",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "download-git-repo": "^1.0.1",
+    "escape-string-regexp": "^1.0.5",
+    "indent-string": "^3.2.0",
+    "mkdirp": "^0.5.1",
+    "recursive-readdir": "^2.2.1",
+    "rimraf": "^2.6.2"
+  }
+}
