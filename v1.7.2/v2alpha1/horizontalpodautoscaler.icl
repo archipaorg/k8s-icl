@@ -1,5 +1,6 @@
 take horizontalpodautoscalerstatus,
-     horizontalpodautoscalerspec
+     horizontalpodautoscalerspec,
+     ../v1/objectmeta
 
 /**HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically
  manages the replica count of any resource implementing the scale subresource based on the
@@ -17,4 +18,6 @@ take horizontalpodautoscalerstatus,
      HorizontalPodAutoscalerStatus "status" {}
      /**spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.*/
      HorizontalPodAutoscalerSpec "spec" {}
+     /**metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

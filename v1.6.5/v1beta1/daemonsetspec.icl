@@ -1,5 +1,6 @@
 take ../v1/podtemplatespec,
-     daemonsetupdatestrategy
+     daemonsetupdatestrategy,
+     ../v1/labelselector
 
 /**DaemonSetSpec is the specification of a daemon set.*/
 ::orch "kubernetes" "DaemonSetSpec" as DaemonSetSpec @minReadySeconds, @template, @templateGeneration, @updateStrategy, @selector {
@@ -16,4 +17,7 @@ take ../v1/podtemplatespec,
      PodTemplateSpec "template" {}
      /**An update strategy to replace existing DaemonSet pods with new pods.*/
      DaemonSetUpdateStrategy "updateStrategy" {}
+     /**A label query over pods that are managed by the daemon set. Must match in order to be controlled.
+      If empty, defaulted to labels on Pod template. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors*/
+     LabelSelector "selector" {}
 }

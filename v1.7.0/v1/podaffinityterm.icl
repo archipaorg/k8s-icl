@@ -1,3 +1,5 @@
+take labelselector
+
 /**Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s))
  that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where
  co-located is defined as running on a node whose value of the label with key <topologyKey>
@@ -13,5 +15,7 @@
       empty topologyKey is interpreted as "all topologies" ("all topologies" here means all the
       topologyKeys indicated by scheduler command-line argument --failure-domains); for affinity
       and for RequiredDuringScheduling pod anti-affinity, empty topologyKey is not allowed.*/
-     topologyKey = null
+     topologyKey = null,
+     /**A label query over a set of resources, in this case pods.*/
+     LabelSelector "labelSelector" {}
 }

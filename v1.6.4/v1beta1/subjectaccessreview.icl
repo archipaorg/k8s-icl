@@ -1,5 +1,6 @@
 take subjectaccessreviewstatus,
-     subjectaccessreviewspec
+     subjectaccessreviewspec,
+     ../v1/objectmeta
 
 /**SubjectAccessReview checks whether or not a user or group can perform an action.*/
 ::orch "kubernetes" "SubjectAccessReview" as SubjectAccessReview @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take subjectaccessreviewstatus,
      SubjectAccessReviewStatus "status" {}
      /**Spec holds information about the request being evaluated*/
      SubjectAccessReviewSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

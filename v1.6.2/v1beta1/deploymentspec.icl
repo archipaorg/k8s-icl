@@ -1,4 +1,5 @@
-take rollbackconfig,
+take ../v1/labelselector,
+     rollbackconfig,
      ../v1/podtemplatespec,
      deploymentstrategy
 
@@ -23,6 +24,9 @@ take rollbackconfig,
       container crashing, for it to be considered available. Defaults to 0 (pod will be considered
       available as soon as it is ready)*/
      minReadySeconds = null,
+     /**Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the
+      ones affected by this deployment.*/
+     LabelSelector "selector" {}
      /**The config this deployment is rolling back to. Will be cleared after rollback is done.*/
      RollbackConfig "rollbackTo" {}
      /**Template describes the pods that will be created.*/

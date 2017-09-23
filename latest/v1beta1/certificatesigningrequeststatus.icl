@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.certificates.v1beta1.CertificateSigningRequestStatus instead.*/
-::orch "kubernetes" "CertificateSigningRequestStatus" as CertificateSigningRequestStatus  {
-
+/***/
+::orch "kubernetes" "CertificateSigningRequestStatus" as CertificateSigningRequestStatus @conditions, @certificate {
+     /**Conditions applied to the request, such as approval or denial.*/
+     conditions = null,
+     /**If request was approved, the controller will place the issued certificate here.*/
+     certificate = null
 }

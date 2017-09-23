@@ -1,4 +1,5 @@
-take ../v1/podtemplatespec,
+take ../v1/labelselector,
+     ../v1/podtemplatespec,
      statefulsetupdatestrategy
 
 /**A StatefulSetSpec is the specification of a StatefulSet.*/
@@ -29,6 +30,9 @@ take ../v1/podtemplatespec,
       revision history. The revision history consists of all revisions not represented by a currently
       applied StatefulSetSpec version. The default value is 10.*/
      revisionHistoryLimit = null,
+     /**selector is a label query over pods that should match the replica count. If empty, defaulted
+      to labels on the pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors*/
+     LabelSelector "selector" {}
      /**template is the object that describes the pod that will be created if insufficient replicas
       are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have
       a unique identity from the rest of the StatefulSet.*/

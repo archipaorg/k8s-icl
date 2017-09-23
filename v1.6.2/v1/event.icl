@@ -1,5 +1,8 @@
-take eventsource,
-     objectreference
+take time,
+     time,
+     eventsource,
+     objectreference,
+     objectmeta
 
 /**Event is a report of an event somewhere in the cluster.*/
 ::orch "kubernetes" "Event" as Event @count, @kind, @firstTimestamp, @lastTimestamp, @apiVersion, @source, @reason, @involvedObject, @message, @type, @metadata {
@@ -20,8 +23,14 @@ take eventsource,
      message = null,
      /**Type of this event (Normal, Warning), new types could be added in the future*/
      type = null,
+     /**The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)*/
+     Time "firstTimestamp" {}
+     /**The time at which the most recent occurrence of this event was recorded.*/
+     Time "lastTimestamp" {}
      /**The component reporting this event. Should be a short machine understandable string.*/
      EventSource "source" {}
      /**The object that this event is about.*/
      ObjectReference "involvedObject" {}
+     /**Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

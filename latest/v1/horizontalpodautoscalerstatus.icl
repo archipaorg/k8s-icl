@@ -1,4 +1,17 @@
-/**Deprecated. Please use io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerStatus instead.*/
-::orch "kubernetes" "HorizontalPodAutoscalerStatus" as HorizontalPodAutoscalerStatus  {
+take time
 
+/**current status of a horizontal pod autoscaler*/
+::orch "kubernetes" "HorizontalPodAutoscalerStatus" as HorizontalPodAutoscalerStatus @observedGeneration, @currentReplicas, @lastScaleTime, @currentCPUUtilizationPercentage, @desiredReplicas {
+     /**most recent generation observed by this autoscaler.*/
+     observedGeneration = null,
+     /**current number of replicas of pods managed by this autoscaler.*/
+     currentReplicas = null,
+     /**current average CPU utilization over all pods, represented as a percentage of requested
+      CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.*/
+     currentCPUUtilizationPercentage = null,
+     /**desired number of replicas of pods managed by this autoscaler.*/
+     desiredReplicas = null,
+     /**last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler
+      to control how often the number of pods is changed.*/
+     Time "lastScaleTime" {}
 }

@@ -1,3 +1,5 @@
+take ../v1/time
+
 /**HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain
  point.*/
 ::orch "kubernetes" "HorizontalPodAutoscalerCondition" as HorizontalPodAutoscalerCondition @status, @lastTransitionTime, @message, @type, @reason {
@@ -8,5 +10,7 @@
      /**type describes the current condition*/
      type = null,
      /**reason is the reason for the condition's last transition.*/
-     reason = null
+     reason = null,
+     /**lastTransitionTime is the last time the condition transitioned from one status to another*/
+     Time "lastTransitionTime" {}
 }

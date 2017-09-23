@@ -1,5 +1,6 @@
 take certificatesigningrequeststatus,
-     certificatesigningrequestspec
+     certificatesigningrequestspec,
+     ../v1/objectmeta
 
 /**Describes a certificate signing request*/
 ::orch "kubernetes" "CertificateSigningRequest" as CertificateSigningRequest @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take certificatesigningrequeststatus,
      CertificateSigningRequestStatus "status" {}
      /**The certificate request itself and any additional information.*/
      CertificateSigningRequestSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

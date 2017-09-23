@@ -1,5 +1,6 @@
 take namespacestatus,
-     namespacespec
+     namespacespec,
+     objectmeta
 
 /**Namespace provides a scope for Names. Use of multiple namespaces is optional.*/
 ::orch "kubernetes" "Namespace" as Namespace @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take namespacestatus,
      NamespaceStatus "status" {}
      /**Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      NamespaceSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

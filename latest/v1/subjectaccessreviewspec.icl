@@ -1,4 +1,21 @@
-/**Deprecated. Please use io.k8s.api.authorization.v1.SubjectAccessReviewSpec instead.*/
-::orch "kubernetes" "SubjectAccessReviewSpec" as SubjectAccessReviewSpec  {
+take nonresourceattributes,
+     resourceattributes
 
+/**SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes
+ and NonResourceAuthorizationAttributes must be set*/
+::orch "kubernetes" "SubjectAccessReviewSpec" as SubjectAccessReviewSpec @nonResourceAttributes, @resourceAttributes, @uid, @groups, @extra, @user {
+     /**UID information about the requesting user.*/
+     uid = null,
+     /**Groups is the groups you're testing for.*/
+     groups = null,
+     /**Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that
+      is input to the authorizer it needs a reflection here.*/
+     extra = null,
+     /**User is the user you're testing for. If you specify "User" but not "Groups", then is it
+      interpreted as "What if User were not a member of any groups*/
+     user = null,
+     /**NonResourceAttributes describes information for a non-resource access request*/
+     NonResourceAttributes "nonResourceAttributes" {}
+     /**ResourceAuthorizationAttributes describes information for a resource access request*/
+     ResourceAttributes "resourceAttributes" {}
 }

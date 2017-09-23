@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.extensions.v1beta1.ScaleSpec instead.*/
-::orch "kubernetes" "ScaleSpec" as ScaleSpec  {
-
+/**describes the attributes of a scale subresource*/
+::orch "kubernetes" "ScaleSpec" as ScaleSpec @replicas {
+     /**desired number of instances for the scaled object.*/
+     replicas = null
 }

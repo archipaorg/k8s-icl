@@ -1,4 +1,5 @@
-take limitrangespec
+take limitrangespec,
+     objectmeta
 
 /**LimitRange sets resource usage limits for each kind of resource in a Namespace.*/
 ::orch "kubernetes" "LimitRange" as LimitRange @kind, @spec, @apiVersion, @metadata {
@@ -12,4 +13,6 @@ take limitrangespec
      apiVersion = "v1",
      /**Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      LimitRangeSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

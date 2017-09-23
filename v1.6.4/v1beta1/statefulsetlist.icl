@@ -1,3 +1,5 @@
+take ../v1/listmeta
+
 /**StatefulSetList is a collection of StatefulSets.*/
 ::orch "kubernetes" "StatefulSetList" as StatefulSetList @items, @kind, @apiVersion, @metadata {
      /***/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /***/
+     ListMeta "metadata" {}
 }

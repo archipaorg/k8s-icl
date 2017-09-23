@@ -1,5 +1,6 @@
 take persistentvolumeclaimstatus,
-     persistentvolumeclaimspec
+     persistentvolumeclaimspec,
+     objectmeta
 
 /**PersistentVolumeClaim is a user's request for and claim to a persistent volume*/
 ::orch "kubernetes" "PersistentVolumeClaim" as PersistentVolumeClaim @status, @kind, @spec, @apiVersion, @metadata {
@@ -17,4 +18,6 @@ take persistentvolumeclaimstatus,
      /**Spec defines the desired characteristics of a volume requested by a pod author. More info:
       https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims*/
      PersistentVolumeClaimSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

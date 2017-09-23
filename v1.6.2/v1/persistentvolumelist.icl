@@ -1,3 +1,5 @@
+take listmeta
+
 /**PersistentVolumeList is a list of PersistentVolume items.*/
 ::orch "kubernetes" "PersistentVolumeList" as PersistentVolumeList @items, @kind, @apiVersion, @metadata {
      /**List of persistent volumes. More info: http://kubernetes.io/docs/user-guide/persistent-volumes*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /**Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds*/
+     ListMeta "metadata" {}
 }

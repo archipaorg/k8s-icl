@@ -1,3 +1,5 @@
+take listmeta
+
 /**SecretList is a list of Secret.*/
 ::orch "kubernetes" "SecretList" as SecretList @items, @kind, @apiVersion, @metadata {
      /**Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources*/
-     apiVersion = "v1"
+     apiVersion = "v1",
+     /**Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds*/
+     ListMeta "metadata" {}
 }

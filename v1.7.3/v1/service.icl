@@ -1,5 +1,6 @@
 take servicestatus,
-     servicespec
+     servicespec,
+     objectmeta
 
 /**Service is a named abstraction of software service (for example, mysql) consisting of local
  port (for example 3306) that the proxy listens on, and the selector that determines which
@@ -18,4 +19,6 @@ take servicestatus,
      ServiceStatus "status" {}
      /**Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      ServiceSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

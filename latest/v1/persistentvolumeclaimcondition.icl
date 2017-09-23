@@ -1,3 +1,6 @@
+take time,
+     time
+
 /**PersistentVolumeClaimCondition contails details about state of pvc*/
 ::orch "kubernetes" "PersistentVolumeClaimCondition" as PersistentVolumeClaimCondition @status, @reason, @lastProbeTime, @type, @message, @lastTransitionTime {
      /***/
@@ -9,5 +12,9 @@
      /***/
      type = null,
      /**Human-readable message indicating details about last transition.*/
-     message = null
+     message = null,
+     /**Last time we probed the condition.*/
+     Time "lastProbeTime" {}
+     /**Last time the condition transitioned from one status to another.*/
+     Time "lastTransitionTime" {}
 }

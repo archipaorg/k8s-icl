@@ -1,4 +1,5 @@
-take podpresetspec
+take podpresetspec,
+     ../v1/objectmeta
 
 /**PodPreset is a policy resource that defines additional runtime requirements for a Pod.*/
 ::orch "kubernetes" "PodPreset" as PodPreset @kind, @spec, @apiVersion, @metadata {
@@ -12,4 +13,6 @@ take podpresetspec
      apiVersion = null,
      /***/
      PodPresetSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

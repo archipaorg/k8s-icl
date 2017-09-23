@@ -1,3 +1,5 @@
+take objectmeta
+
 /**Endpoints is a collection of endpoints that implement the actual service. Example:
   Name:
  "mysvc",
@@ -29,5 +31,7 @@
       in the address being displayed in different subsets for the different ports. No address
       will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses
       and ports that comprise a service.*/
-     subsets = null
+     subsets = null,
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

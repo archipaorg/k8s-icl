@@ -1,4 +1,9 @@
-/**Deprecated. Please use io.k8s.api.extensions.v1beta1.DaemonSetUpdateStrategy instead.*/
-::orch "kubernetes" "DaemonSetUpdateStrategy" as DaemonSetUpdateStrategy  {
+take rollingupdatedaemonset
 
+/***/
+::orch "kubernetes" "DaemonSetUpdateStrategy" as DaemonSetUpdateStrategy @rollingUpdate, @type {
+     /**Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is OnDelete.*/
+     type = null,
+     /**Rolling update config params. Present only if type = "RollingUpdate".*/
+     RollingUpdateDaemonSet "rollingUpdate" {}
 }

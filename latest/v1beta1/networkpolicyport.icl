@@ -1,4 +1,6 @@
-/**Deprecated. Please use io.k8s.api.extensions.v1beta1.NetworkPolicyPort instead.*/
-::orch "kubernetes" "NetworkPolicyPort" as NetworkPolicyPort  {
-
+/***/
+::orch "kubernetes" "NetworkPolicyPort" as NetworkPolicyPort @protocol, @port {
+     /**Optional.  The protocol (TCP or UDP) which traffic must match. If not specified, this field
+      defaults to TCP.*/
+     protocol = null
 }

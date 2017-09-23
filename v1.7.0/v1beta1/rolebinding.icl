@@ -1,4 +1,5 @@
-take roleref
+take roleref,
+     ../v1/objectmeta
 
 /**RoleBinding references a role, but does not contain it.  It can reference a Role in the
  same namespace or a ClusterRole in the global namespace. It adds who information via Subjects
@@ -18,4 +19,6 @@ take roleref
      /**RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
       If the RoleRef cannot be resolved, the Authorizer must return an error.*/
      RoleRef "roleRef" {}
+     /**Standard object's metadata.*/
+     ObjectMeta "metadata" {}
 }

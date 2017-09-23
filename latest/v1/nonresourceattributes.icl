@@ -1,4 +1,8 @@
-/**Deprecated. Please use io.k8s.api.authorization.v1.NonResourceAttributes instead.*/
-::orch "kubernetes" "NonResourceAttributes" as NonResourceAttributes  {
-
+/**NonResourceAttributes includes the authorization attributes available for non-resource requests
+ to the Authorizer interface*/
+::orch "kubernetes" "NonResourceAttributes" as NonResourceAttributes @path, @verb {
+     /**Path is the URL path of the request*/
+     path = null,
+     /**Verb is the standard HTTP verb*/
+     verb = null
 }

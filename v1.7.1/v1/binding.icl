@@ -1,4 +1,5 @@
-take objectreference
+take objectreference,
+     objectmeta
 
 /**Binding ties one object to another; for example, a pod is bound to a node by a scheduler.
  Deprecated in 1.7, please use the bindings subresource of pods instead.*/
@@ -13,4 +14,6 @@ take objectreference
      apiVersion = "v1",
      /**The target object that you want to bind to the standard object.*/
      ObjectReference "target" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

@@ -1,3 +1,6 @@
+take ../v1/deleteoptions,
+     ../v1/objectmeta
+
 /**Eviction evicts a pod from its node subject to certain policies and safety constraints.
  This is a subresource of Pod.  A request to cause such an eviction is created by POSTing
  to .../pods/<pod name>/evictions.*/
@@ -9,5 +12,9 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /**DeleteOptions may be provided*/
+     DeleteOptions "deleteOptions" {}
+     /**ObjectMeta describes the pod that is being evicted.*/
+     ObjectMeta "metadata" {}
 }

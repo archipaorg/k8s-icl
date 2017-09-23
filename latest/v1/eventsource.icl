@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.core.v1.EventSource instead.*/
-::orch "kubernetes" "EventSource" as EventSource  {
-
+/**EventSource contains information for an event.*/
+::orch "kubernetes" "EventSource" as EventSource @host, @component {
+     /**Node name on which the event is generated.*/
+     host = null,
+     /**Component from which the event is generated.*/
+     component = null
 }

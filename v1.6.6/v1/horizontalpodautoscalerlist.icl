@@ -1,3 +1,5 @@
+take listmeta
+
 /**list of horizontal pod autoscaler objects.*/
 ::orch "kubernetes" "HorizontalPodAutoscalerList" as HorizontalPodAutoscalerList @items, @kind, @apiVersion, @metadata {
      /**list of horizontal pod autoscaler objects.*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /**Standard list metadata.*/
+     ListMeta "metadata" {}
 }

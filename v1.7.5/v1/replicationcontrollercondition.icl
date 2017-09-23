@@ -1,3 +1,5 @@
+take time
+
 /**ReplicationControllerCondition describes the state of a replication controller at a certain
  point.*/
 ::orch "kubernetes" "ReplicationControllerCondition" as ReplicationControllerCondition @status, @lastTransitionTime, @message, @type, @reason {
@@ -8,5 +10,7 @@
      /**Type of replication controller condition.*/
      type = null,
      /**The reason for the condition's last transition.*/
-     reason = null
+     reason = null,
+     /**The last time the condition transitioned from one status to another.*/
+     Time "lastTransitionTime" {}
 }

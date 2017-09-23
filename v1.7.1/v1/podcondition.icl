@@ -1,3 +1,6 @@
+take time,
+     time
+
 /**PodCondition contains details for the current condition of this pod.*/
 ::orch "kubernetes" "PodCondition" as PodCondition @status, @reason, @lastProbeTime, @type, @message, @lastTransitionTime {
      /**Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions*/
@@ -7,5 +10,9 @@
      /**Type is the type of the condition. Currently only Ready. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions*/
      type = null,
      /**Human-readable message indicating details about last transition.*/
-     message = null
+     message = null,
+     /**Last time we probed the condition.*/
+     Time "lastProbeTime" {}
+     /**Last time the condition transitioned from one status to another.*/
+     Time "lastTransitionTime" {}
 }

@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.authentication.v1beta1.TokenReviewSpec instead.*/
-::orch "kubernetes" "TokenReviewSpec" as TokenReviewSpec  {
-
+/**TokenReviewSpec is a description of the token authentication request.*/
+::orch "kubernetes" "TokenReviewSpec" as TokenReviewSpec @token {
+     /**Token is the opaque bearer token.*/
+     token = null
 }

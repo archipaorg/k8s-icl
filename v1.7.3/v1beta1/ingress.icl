@@ -1,5 +1,6 @@
 take ingressstatus,
-     ingressspec
+     ingressspec,
+     ../v1/objectmeta
 
 /**Ingress is a collection of rules that allow inbound connections to reach the endpoints defined
  by a backend. An Ingress can be configured to give services externally-reachable urls,
@@ -17,4 +18,6 @@ take ingressstatus,
      IngressStatus "status" {}
      /**Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      IngressSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

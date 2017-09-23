@@ -1,5 +1,6 @@
 take replicasetstatus,
-     replicasetspec
+     replicasetspec,
+     ../v1/objectmeta
 
 /**ReplicaSet represents the configuration of a ReplicaSet.*/
 ::orch "kubernetes" "ReplicaSet" as ReplicaSet @status, @kind, @spec, @apiVersion, @metadata {
@@ -16,4 +17,7 @@ take replicasetstatus,
      ReplicaSetStatus "status" {}
      /**Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      ReplicaSetSpec "spec" {}
+     /**If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s)
+      that the ReplicaSet manages. Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

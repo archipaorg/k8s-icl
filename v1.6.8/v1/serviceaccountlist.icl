@@ -1,3 +1,5 @@
+take listmeta
+
 /**ServiceAccountList is a list of ServiceAccount objects*/
 ::orch "kubernetes" "ServiceAccountList" as ServiceAccountList @items, @kind, @apiVersion, @metadata {
      /**List of ServiceAccounts. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md#service-accounts*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /**Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds*/
+     ListMeta "metadata" {}
 }

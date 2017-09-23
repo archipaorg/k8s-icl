@@ -1,3 +1,5 @@
+take time
+
 /**The node this Taint is attached to has the effect "effect" on any pod that that does not
  tolerate the Taint.*/
 ::orch "kubernetes" "Taint" as Taint @key, @timeAdded, @effect, @value {
@@ -7,5 +9,8 @@
       are NoSchedule, PreferNoSchedule and NoExecute.*/
      effect = null,
      /**Required. The taint value corresponding to the taint key.*/
-     value = null
+     value = null,
+     /**TimeAdded represents the time at which the taint was added. It is only written for NoExecute
+      taints.*/
+     Time "timeAdded" {}
 }

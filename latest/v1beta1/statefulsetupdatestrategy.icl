@@ -1,4 +1,11 @@
-/**Deprecated. Please use io.k8s.api.apps.v1beta1.StatefulSetUpdateStrategy instead.*/
-::orch "kubernetes" "StatefulSetUpdateStrategy" as StatefulSetUpdateStrategy  {
+take rollingupdatestatefulsetstrategy
 
+/**StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use
+ to perform updates. It includes any additional parameters necessary to perform the update
+ for the indicated strategy.*/
+::orch "kubernetes" "StatefulSetUpdateStrategy" as StatefulSetUpdateStrategy @rollingUpdate, @type {
+     /**Type indicates the type of the StatefulSetUpdateStrategy.*/
+     type = null,
+     /**RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.*/
+     RollingUpdateStatefulSetStrategy "rollingUpdate" {}
 }

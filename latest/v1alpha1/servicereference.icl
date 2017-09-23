@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.admissionregistration.v1alpha1.ServiceReference instead.*/
-::orch "kubernetes" "ServiceReference" as ServiceReference  {
-
+/**ServiceReference holds a reference to Service.legacy.k8s.io*/
+::orch "kubernetes" "ServiceReference" as ServiceReference @namespace, @name {
+     /**Namespace is the namespace of the service Required*/
+     namespace = null,
+     /**Name is the name of the service Required*/
+     name = null
 }

@@ -1,3 +1,5 @@
+take ../v1/listmeta
+
 /***/
 ::orch "kubernetes" "CertificateSigningRequestList" as CertificateSigningRequestList @items, @kind, @apiVersion, @metadata {
      /***/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources*/
-     apiVersion = "v1beta1"
+     apiVersion = "v1beta1",
+     /***/
+     ListMeta "metadata" {}
 }

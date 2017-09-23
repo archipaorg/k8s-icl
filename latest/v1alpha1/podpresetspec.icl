@@ -1,4 +1,15 @@
-/**Deprecated. Please use io.k8s.api.settings.v1alpha1.PodPresetSpec instead.*/
-::orch "kubernetes" "PodPresetSpec" as PodPresetSpec  {
+take ../v1/labelselector
 
+/**PodPresetSpec is a description of a pod preset.*/
+::orch "kubernetes" "PodPresetSpec" as PodPresetSpec @selector, @volumeMounts, @envFrom, @volumes, @env {
+     /**VolumeMounts defines the collection of VolumeMount to inject into containers.*/
+     volumeMounts = null,
+     /**EnvFrom defines the collection of EnvFromSource to inject into containers.*/
+     envFrom = null,
+     /**Volumes defines the collection of Volume to inject into the pod.*/
+     volumes = null,
+     /**Env defines the collection of EnvVar to inject into containers.*/
+     env = null,
+     /**Selector is a label query over a set of resources, in this case pods. Required.*/
+     LabelSelector "selector" {}
 }

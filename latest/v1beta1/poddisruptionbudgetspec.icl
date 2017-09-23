@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec instead.*/
-::orch "kubernetes" "PodDisruptionBudgetSpec" as PodDisruptionBudgetSpec  {
+take ../v1/labelselector
 
+/**PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.*/
+::orch "kubernetes" "PodDisruptionBudgetSpec" as PodDisruptionBudgetSpec @minAvailable, @maxUnavailable, @selector {
+     /**Label query over pods whose evictions are managed by the disruption budget.*/
+     LabelSelector "selector" {}
 }

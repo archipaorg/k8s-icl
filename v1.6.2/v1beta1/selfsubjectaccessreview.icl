@@ -1,5 +1,6 @@
 take subjectaccessreviewstatus,
-     selfsubjectaccessreviewspec
+     selfsubjectaccessreviewspec,
+     ../v1/objectmeta
 
 /**SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling
  in a spec.namespace means "in all namespaces".  Self is a special case, because users should
@@ -17,4 +18,6 @@ take subjectaccessreviewstatus,
      SubjectAccessReviewStatus "status" {}
      /**Spec holds information about the request being evaluated.  user and groups must be empty*/
      SelfSubjectAccessReviewSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

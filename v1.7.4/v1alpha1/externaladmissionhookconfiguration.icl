@@ -1,3 +1,5 @@
+take ../v1/objectmeta
+
 /**ExternalAdmissionHookConfiguration describes the configuration of initializers.*/
 ::orch "kubernetes" "ExternalAdmissionHookConfiguration" as ExternalAdmissionHookConfiguration @kind, @apiVersion, @externalAdmissionHooks, @metadata {
      /**Kind is a string value representing the REST resource this object represents. Servers may
@@ -10,5 +12,7 @@
      apiVersion = "v1alpha1",
      /**ExternalAdmissionHooks is a list of external admission webhooks and the affected resources
       and operations.*/
-     externalAdmissionHooks = null
+     externalAdmissionHooks = null,
+     /**Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.*/
+     ObjectMeta "metadata" {}
 }

@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.extensions.v1beta1.IngressBackend instead.*/
-::orch "kubernetes" "IngressBackend" as IngressBackend  {
-
+/**IngressBackend describes all endpoints for a given service and port.*/
+::orch "kubernetes" "IngressBackend" as IngressBackend @serviceName, @servicePort {
+     /**Specifies the name of the referenced service.*/
+     serviceName = null
 }

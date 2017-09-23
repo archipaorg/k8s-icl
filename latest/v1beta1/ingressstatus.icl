@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.extensions.v1beta1.IngressStatus instead.*/
-::orch "kubernetes" "IngressStatus" as IngressStatus  {
+take ../v1/loadbalancerstatus
 
+/**IngressStatus describe the current state of the Ingress.*/
+::orch "kubernetes" "IngressStatus" as IngressStatus @loadBalancer {
+     /**LoadBalancer contains the current status of the load-balancer.*/
+     LoadBalancerStatus "loadBalancer" {}
 }

@@ -1,4 +1,5 @@
-take ../v1/podtemplatespec
+take ../v1/podtemplatespec,
+     ../v1/labelselector
 
 /**A StatefulSetSpec is the specification of a StatefulSet.*/
 ::orch "kubernetes" "StatefulSetSpec" as StatefulSetSpec @replicas, @serviceName, @volumeClaimTemplates, @template, @selector {
@@ -21,4 +22,7 @@ take ../v1/podtemplatespec
       are detected. Each pod stamped out by the StatefulSet will fulfill this Template, but have
       a unique identity from the rest of the StatefulSet.*/
      PodTemplateSpec "template" {}
+     /**Selector is a label query over pods that should match the replica count. If empty, defaulted
+      to labels on the pod template. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors*/
+     LabelSelector "selector" {}
 }

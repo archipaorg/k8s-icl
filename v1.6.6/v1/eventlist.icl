@@ -1,3 +1,5 @@
+take listmeta
+
 /**EventList is a list of events.*/
 ::orch "kubernetes" "EventList" as EventList @items, @kind, @apiVersion, @metadata {
      /**List of events*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
-     apiVersion = null
+     apiVersion = null,
+     /**Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds*/
+     ListMeta "metadata" {}
 }

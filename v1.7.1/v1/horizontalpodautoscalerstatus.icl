@@ -1,3 +1,5 @@
+take time
+
 /**current status of a horizontal pod autoscaler*/
 ::orch "kubernetes" "HorizontalPodAutoscalerStatus" as HorizontalPodAutoscalerStatus @observedGeneration, @currentReplicas, @lastScaleTime, @currentCPUUtilizationPercentage, @desiredReplicas {
      /**most recent generation observed by this autoscaler.*/
@@ -8,5 +10,8 @@
       CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.*/
      currentCPUUtilizationPercentage = null,
      /**desired number of replicas of pods managed by this autoscaler.*/
-     desiredReplicas = null
+     desiredReplicas = null,
+     /**last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler
+      to control how often the number of pods is changed.*/
+     Time "lastScaleTime" {}
 }

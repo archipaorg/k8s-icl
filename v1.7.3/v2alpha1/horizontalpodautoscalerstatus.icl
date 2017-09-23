@@ -1,3 +1,5 @@
+take ../v1/time
+
 /**HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.*/
 ::orch "kubernetes" "HorizontalPodAutoscalerStatus" as HorizontalPodAutoscalerStatus @desiredReplicas, @observedGeneration, @conditions, @currentReplicas, @lastScaleTime, @currentMetrics {
      /**desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as
@@ -12,5 +14,8 @@
       seen by the autoscaler.*/
      currentReplicas = null,
      /**currentMetrics is the last read state of the metrics used by this autoscaler.*/
-     currentMetrics = null
+     currentMetrics = null,
+     /**lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used
+      by the autoscaler to control how often the number of pods is changed.*/
+     Time "lastScaleTime" {}
 }

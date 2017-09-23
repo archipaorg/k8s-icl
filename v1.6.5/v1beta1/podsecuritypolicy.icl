@@ -1,4 +1,5 @@
-take podsecuritypolicyspec
+take podsecuritypolicyspec,
+     ../v1/objectmeta
 
 /**Pod Security Policy governs the ability to make requests that affect the Security Context
  that will be applied to a pod and container.*/
@@ -13,4 +14,6 @@ take podsecuritypolicyspec
      apiVersion = null,
      /**spec defines the policy enforced.*/
      PodSecurityPolicySpec "spec" {}
+     /**Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

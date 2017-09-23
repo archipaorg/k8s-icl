@@ -1,4 +1,5 @@
-take podtemplatespec
+take podtemplatespec,
+     objectmeta
 
 /**PodTemplate describes a template for creating copies of a predefined pod.*/
 ::orch "kubernetes" "PodTemplate" as PodTemplate @kind, @apiVersion, @template, @metadata {
@@ -12,4 +13,6 @@ take podtemplatespec
      apiVersion = "v1",
      /**Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      PodTemplateSpec "template" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

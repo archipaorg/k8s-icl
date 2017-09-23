@@ -1,5 +1,6 @@
 take statefulsetstatus,
-     statefulsetspec
+     statefulsetspec,
+     ../v1/objectmeta
 
 /**StatefulSet represents a set of pods with consistent identities. Identities are defined
  as:
@@ -22,4 +23,6 @@ The
      StatefulSetStatus "status" {}
      /**Spec defines the desired identities of pods in this set.*/
      StatefulSetSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

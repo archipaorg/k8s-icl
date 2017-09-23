@@ -1,5 +1,6 @@
 take cronjobstatus,
-     cronjobspec
+     cronjobspec,
+     ../v1/objectmeta
 
 /**CronJob represents the configuration of a single cron job.*/
 ::orch "kubernetes" "CronJob" as CronJob @status, @kind, @spec, @apiVersion, @metadata {
@@ -16,4 +17,6 @@ take cronjobstatus,
      /**Specification of the desired behavior of a cron job, including the schedule. More info:
       https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      CronJobSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

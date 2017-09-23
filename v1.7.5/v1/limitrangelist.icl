@@ -1,3 +1,5 @@
+take listmeta
+
 /**LimitRangeList is a list of LimitRange items.*/
 ::orch "kubernetes" "LimitRangeList" as LimitRangeList @items, @kind, @apiVersion, @metadata {
      /**Items is a list of LimitRange objects. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_limit_range.md*/
@@ -9,5 +11,7 @@
      /**APIVersion defines the versioned schema of this representation of an object. Servers should
       convert recognized schemas to the latest internal value, and may reject unrecognized values.
       More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources*/
-     apiVersion = "v1"
+     apiVersion = "v1",
+     /**Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds*/
+     ListMeta "metadata" {}
 }

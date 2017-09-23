@@ -1,5 +1,6 @@
 take poddisruptionbudgetstatus,
-     poddisruptionbudgetspec
+     poddisruptionbudgetspec,
+     ../v1/objectmeta
 
 /**PodDisruptionBudget is an object to define the max disruption that can be caused to a collection
  of pods*/
@@ -16,4 +17,6 @@ take poddisruptionbudgetstatus,
      PodDisruptionBudgetStatus "status" {}
      /**Specification of the desired behavior of the PodDisruptionBudget.*/
      PodDisruptionBudgetSpec "spec" {}
+     /***/
+     ObjectMeta "metadata" {}
 }

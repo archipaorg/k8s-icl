@@ -1,5 +1,6 @@
 take daemonsetupdatestrategy,
-     ../v1/podtemplatespec
+     ../v1/podtemplatespec,
+     ../v1/labelselector
 
 /**DaemonSetSpec is the specification of a daemon set.*/
 ::orch "kubernetes" "DaemonSetSpec" as DaemonSetSpec @updateStrategy, @template, @revisionHistoryLimit, @minReadySeconds, @templateGeneration, @selector {
@@ -19,4 +20,7 @@ take daemonsetupdatestrategy,
       one copy of this pod on every node that matches the template's node selector (or on every
       node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template*/
      PodTemplateSpec "template" {}
+     /**A label query over pods that are managed by the daemon set. Must match in order to be controlled.
+      If empty, defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors*/
+     LabelSelector "selector" {}
 }

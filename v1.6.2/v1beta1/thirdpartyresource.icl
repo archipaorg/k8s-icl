@@ -1,3 +1,5 @@
+take ../v1/objectmeta
+
 /**A ThirdPartyResource is a generic representation of a resource, it is used by add-ons and
  plugins to add new resource types to the API.  It consists of one or more Versions of the
  api.*/
@@ -13,5 +15,7 @@
       More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources*/
      apiVersion = null,
      /**Versions are versions for this third party object*/
-     versions = null
+     versions = null,
+     /**Standard object metadata*/
+     ObjectMeta "metadata" {}
 }

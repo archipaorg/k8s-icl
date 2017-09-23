@@ -1,4 +1,5 @@
-take networkpolicyspec
+take networkpolicyspec,
+     objectmeta
 
 /**NetworkPolicy describes what network traffic is allowed for a set of Pods*/
 ::orch "kubernetes" "NetworkPolicy" as NetworkPolicy @kind, @spec, @apiVersion, @metadata {
@@ -12,4 +13,6 @@ take networkpolicyspec
      apiVersion = "v1",
      /**Specification of the desired behavior for this NetworkPolicy.*/
      NetworkPolicySpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

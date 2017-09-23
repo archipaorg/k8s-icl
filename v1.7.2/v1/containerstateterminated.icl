@@ -1,3 +1,6 @@
+take time,
+     time
+
 /**ContainerStateTerminated is a terminated state of a container.*/
 ::orch "kubernetes" "ContainerStateTerminated" as ContainerStateTerminated @reason, @finishedAt, @containerID, @startedAt, @signal, @message, @exitCode {
      /**(brief) reason from the last termination of the container*/
@@ -9,5 +12,9 @@
      /**Message regarding the last termination of the container*/
      message = null,
      /**Exit status from the last termination of the container*/
-     exitCode = null
+     exitCode = null,
+     /**Time at which the container last terminated*/
+     Time "finishedAt" {}
+     /**Time at which previous execution of the container started*/
+     Time "startedAt" {}
 }

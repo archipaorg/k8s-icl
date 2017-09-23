@@ -1,4 +1,5 @@
-take resourcerequirements
+take labelselector,
+     resourcerequirements
 
 /**PersistentVolumeClaimSpec describes the common attributes of storage devices and allows
  a Source for provider-specific attributes*/
@@ -9,6 +10,8 @@ take resourcerequirements
      accessModes = null,
      /**VolumeName is the binding reference to the PersistentVolume backing this claim.*/
      volumeName = null,
+     /**A label query over volumes to consider for binding.*/
+     LabelSelector "selector" {}
      /**Resources represents the minimum resources the volume should have. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#resources*/
      ResourceRequirements "resources" {}
 }

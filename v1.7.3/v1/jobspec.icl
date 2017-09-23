@@ -1,4 +1,5 @@
-take podtemplatespec
+take podtemplatespec,
+     labelselector
 
 /**JobSpec describes how the job execution will look like.*/
 ::orch "kubernetes" "JobSpec" as JobSpec @activeDeadlineSeconds, @parallelism, @completions, @manualSelector, @template, @selector {
@@ -24,4 +25,7 @@ take podtemplatespec
      manualSelector = null,
      /**Describes the pod that will be created when executing a job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/*/
      PodTemplateSpec "template" {}
+     /**A label query over pods that should match the pod count. Normally, the system sets this
+      field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors*/
+     LabelSelector "selector" {}
 }

@@ -1,3 +1,5 @@
+take ../v1/objectmeta
+
 /**ControllerRevision implements an immutable snapshot of state data. Clients are responsible
  for serializing and deserializing the objects that contain their internal state. Once a
  ControllerRevision has been successfully created, it can not be updated. The API Server
@@ -16,5 +18,7 @@
       More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources*/
      apiVersion = "v1beta1",
      /**Revision indicates the revision of the state represented by Data.*/
-     revision = null
+     revision = null,
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

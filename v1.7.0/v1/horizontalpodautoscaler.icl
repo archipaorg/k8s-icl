@@ -1,5 +1,6 @@
 take horizontalpodautoscalerstatus,
-     horizontalpodautoscalerspec
+     horizontalpodautoscalerspec,
+     objectmeta
 
 /**configuration of a horizontal pod autoscaler.*/
 ::orch "kubernetes" "HorizontalPodAutoscaler" as HorizontalPodAutoscaler @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take horizontalpodautoscalerstatus,
      HorizontalPodAutoscalerStatus "status" {}
      /**behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.*/
      HorizontalPodAutoscalerSpec "spec" {}
+     /**Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

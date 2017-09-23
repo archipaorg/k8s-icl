@@ -1,3 +1,5 @@
+take objectmeta
+
 /**StorageClass describes the parameters for a class of storage for which PersistentVolumes
  can be dynamically provisioned.
 
@@ -16,5 +18,7 @@ StorageClasses are non-namespaced; the name of the storage
       class.*/
      parameters = null,
      /**Provisioner indicates the type of the provisioner.*/
-     provisioner = null
+     provisioner = null,
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

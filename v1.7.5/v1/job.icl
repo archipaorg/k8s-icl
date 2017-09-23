@@ -1,5 +1,6 @@
 take jobstatus,
-     jobspec
+     jobspec,
+     objectmeta
 
 /**Job represents the configuration of a single job.*/
 ::orch "kubernetes" "Job" as Job @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take jobstatus,
      JobStatus "status" {}
      /**Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status*/
      JobSpec "spec" {}
+     /**Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

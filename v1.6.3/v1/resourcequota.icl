@@ -1,5 +1,6 @@
 take resourcequotastatus,
-     resourcequotaspec
+     resourcequotaspec,
+     objectmeta
 
 /**ResourceQuota sets aggregate quota restrictions enforced per namespace*/
 ::orch "kubernetes" "ResourceQuota" as ResourceQuota @status, @kind, @spec, @apiVersion, @metadata {
@@ -15,4 +16,6 @@ take resourcequotastatus,
      ResourceQuotaStatus "status" {}
      /**Spec defines the desired quota. http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status*/
      ResourceQuotaSpec "spec" {}
+     /**Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

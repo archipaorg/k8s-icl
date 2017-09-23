@@ -1,3 +1,5 @@
+take objectmeta
+
 /**ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral
  systems, for an identity * a principal that can be authenticated and authorized * a set
  of secrets*/
@@ -20,5 +22,7 @@
      apiVersion = null,
      /**AutomountServiceAccountToken indicates whether pods running as this service account should
       have an API token automatically mounted. Can be overridden at the pod level.*/
-     automountServiceAccountToken = null
+     automountServiceAccountToken = null,
+     /**Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata*/
+     ObjectMeta "metadata" {}
 }

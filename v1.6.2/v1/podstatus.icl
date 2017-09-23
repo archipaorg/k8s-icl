@@ -1,3 +1,5 @@
+take time
+
 /**PodStatus represents information about the status of a pod. Status may trail the actual
  state of a system.*/
 ::orch "kubernetes" "PodStatus" as PodStatus @initContainerStatuses, @qosClass, @containerStatuses, @reason, @podIP, @startTime, @hostIP, @phase, @message, @conditions {
@@ -23,5 +25,8 @@
      /**A human readable message indicating details about why the pod is in this condition.*/
      message = null,
      /**Current service state of pod. More info: http://kubernetes.io/docs/user-guide/pod-states#pod-conditions*/
-     conditions = null
+     conditions = null,
+     /**RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before
+      the Kubelet pulled the container image(s) for the pod.*/
+     Time "startTime" {}
 }

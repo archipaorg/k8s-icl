@@ -1,4 +1,5 @@
-take ../v1/podtemplatespec
+take ../v1/podtemplatespec,
+     ../v1/labelselector
 
 /**ReplicaSetSpec is the specification of a ReplicaSet.*/
 ::orch "kubernetes" "ReplicaSetSpec" as ReplicaSetSpec @replicas, @minReadySeconds, @template, @selector {
@@ -12,4 +13,8 @@ take ../v1/podtemplatespec
      /**Template is the object that describes the pod that will be created if insufficient replicas
       are detected. More info: http://kubernetes.io/docs/user-guide/replication-controller#pod-template*/
      PodTemplateSpec "template" {}
+     /**Selector is a label query over pods that should match the replica count. If the selector
+      is empty, it is defaulted to the labels present on the pod template. Label keys and values
+      that must match in order to be controlled by this replica set. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors*/
+     LabelSelector "selector" {}
 }
