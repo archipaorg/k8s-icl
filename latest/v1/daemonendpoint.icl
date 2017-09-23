@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.core.v1.DaemonEndpoint instead.*/
-::orch "kubernetes" "DaemonEndpoint" as DaemonEndpoint  {
-
+/**DaemonEndpoint contains information about a single Daemon endpoint.*/
+::orch "kubernetes" "DaemonEndpoint" as DaemonEndpoint @Port {
+     /**Port number of the given endpoint.*/
+     Port = null
 }

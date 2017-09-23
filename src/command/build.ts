@@ -13,7 +13,7 @@ export class Build {
      * This regex is used to extract the api version and name of each definition
      * @type {string}
      */
-    private static readonly DEFINITION_NAME_PATTERN: string = '^io.k8s.kubernetes.*.(v[0-9]([0-9]|[a-z|A-Z|_])*).([a-z|A-Z|_]+)|^((v[0-9]([0-9]|[a-z|A-Z|_])*).([a-z|A-Z|_]+))';
+    private static readonly DEFINITION_NAME_PATTERN: string = '^(io.k8s.kubernetes|io.k8s.api.core).*.(v[0-9]([0-9]|[a-z|A-Z|_])*).([a-z|A-Z|_]+)|^((v[0-9]([0-9]|[a-z|A-Z|_])*).([a-z|A-Z|_]+))';
 
     /**
      * default definition file name
@@ -108,11 +108,11 @@ export class Build {
     }
 
     private getApiDirForVersion(version: string): string {
-        return this.iclTemplatesFolder + Path.sep + version;
+        return Path.join(this.iclTemplatesFolder ,version);
     }
 
     private getFileNameFor(definition: string, version: string): string {
-        return this.getApiDirForVersion(version) + Path.sep + definition + Build.ICL_FILENAME_EXT;
+        return Path.join(this.getApiDirForVersion(version), definition + Build.ICL_FILENAME_EXT);
     }
 
     /**
@@ -125,15 +125,15 @@ export class Build {
         let jsonSchema: JsonSchema = this.jsonSchemas[jsonSchemaName];
         let match: Array<any> | null = new RegExp(Build.DEFINITION_NAME_PATTERN, 'gi').exec(jsonSchemaName);
 
-        if (match !== null) {// TODO check if the template already exists
+        if (match !== null) {
             // version api version
-            let kApiVersion: string = match[1];
+            let kApiVersion: string = match[2];
             // component name
-            let kComponentName: string = match[3];
+            let kComponentName: string = match[4];
 
             if (!kComponentName) { // it means it matched with the old pattern
-                kApiVersion = match[5];
-                kComponentName = match[7];
+                kApiVersion = match[6];
+                kComponentName = match[8];
             }
             /** the folder where we are going to store our generated icl template
              & make sure that the api folder is created*/
@@ -196,8 +196,16 @@ export class Build {
                 } else if (property.$ref) { // ref type
 
                     let refWithoutPrefix: string = property.$ref.replace('#/definitions/', '');
+                    let subIclTemplate: IclTemplateGeneration | null;
                     // go on recursively to create the sub icl template
-                    let subIclTemplate: IclTemplateGeneration | null = this.generateIclTemplate(refWithoutPrefix);
+                    if (refWithoutPrefix != jsonSchemaName) {
+                        subIclTemplate = this.generateIclTemplate(refWithoutPrefix);
+                    } else {
+                        subIclTemplate = <IclTemplateGeneration> {
+                            name: kComponentName,
+                            version: kApiVersion
+                        };
+                    }
 
                     if (subIclTemplate) { // ok the sub icl template has been successfully generated
                         /*if it's the same api version it means they are in the same folder*/
@@ -244,7 +252,10 @@ export class Build {
                 allProperties.join(',\r\n')
             );
 
-            fs.writeFileSync(this.getFileNameFor(kComponentName.toLowerCase(), kApiVersion), iclTemplateWrapper);
+            // if the template already doesnt exists
+            if(!fs.existsSync(this.getFileNameFor(kComponentName.toLowerCase(), kApiVersion))) {
+                fs.writeFileSync(this.getFileNameFor(kComponentName.toLowerCase(), kApiVersion), iclTemplateWrapper);
+            }
 
             return <IclTemplateGeneration> {
                 name: kComponentName,

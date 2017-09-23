@@ -1,4 +1,4 @@
-/**represents the current status of a scale subresource.*/
+/**ScaleStatus represents the current status of a scale subresource.*/
 ::orch "kubernetes" "ScaleStatus" as ScaleStatus @replicas, @targetSelector, @selector {
      /**actual number of observed instances of the scaled object.*/
      replicas = null,

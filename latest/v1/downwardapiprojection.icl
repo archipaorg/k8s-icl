@@ -1,4 +1,6 @@
-/**Deprecated. Please use io.k8s.api.core.v1.DownwardAPIProjection instead.*/
-::orch "kubernetes" "DownwardAPIProjection" as DownwardAPIProjection  {
-
+/**Represents downward API info for projecting into a projected volume. Note that this is identical
+ to a downwardAPI volume source without the default mode.*/
+::orch "kubernetes" "DownwardAPIProjection" as DownwardAPIProjection @items {
+     /**Items is a list of DownwardAPIVolume file*/
+     items = null
 }

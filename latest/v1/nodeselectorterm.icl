@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.core.v1.NodeSelectorTerm instead.*/
-::orch "kubernetes" "NodeSelectorTerm" as NodeSelectorTerm  {
-
+/**A null or empty node selector term matches no objects.*/
+::orch "kubernetes" "NodeSelectorTerm" as NodeSelectorTerm @matchExpressions {
+     /**Required. A list of node selector requirements. The requirements are ANDed.*/
+     matchExpressions = null
 }

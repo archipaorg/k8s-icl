@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.core.v1.Capabilities instead.*/
-::orch "kubernetes" "Capabilities" as Capabilities  {
-
+/**Adds and removes POSIX capabilities from running containers.*/
+::orch "kubernetes" "Capabilities" as Capabilities @add, @drop {
+     /**Added capabilities*/
+     add = null,
+     /**Removed capabilities*/
+     drop = null
 }

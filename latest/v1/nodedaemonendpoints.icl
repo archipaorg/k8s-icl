@@ -1,4 +1,7 @@
-/**Deprecated. Please use io.k8s.api.core.v1.NodeDaemonEndpoints instead.*/
-::orch "kubernetes" "NodeDaemonEndpoints" as NodeDaemonEndpoints  {
+take daemonendpoint
 
+/**NodeDaemonEndpoints lists ports opened by daemons running on the Node.*/
+::orch "kubernetes" "NodeDaemonEndpoints" as NodeDaemonEndpoints @kubeletEndpoint {
+     /**Endpoint on which Kubelet is listening.*/
+     DaemonEndpoint "kubeletEndpoint" {}
 }

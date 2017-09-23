@@ -1,4 +1,5 @@
-/**Deprecated. Please use io.k8s.api.core.v1.TCPSocketAction instead.*/
-::orch "kubernetes" "TCPSocketAction" as TCPSocketAction  {
-
+/**TCPSocketAction describes an action based on opening a socket*/
+::orch "kubernetes" "TCPSocketAction" as TCPSocketAction @host, @port {
+     /**Optional: Host name to connect to, defaults to the pod IP.*/
+     host = null
 }

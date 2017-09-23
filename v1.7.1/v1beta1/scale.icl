@@ -1,7 +1,7 @@
 take scalestatus,
      scalespec
 
-/**Scale represents a scaling request for a resource.*/
+/**represents a scaling request for a resource.*/
 ::orch "kubernetes" "Scale" as Scale @status, @kind, @spec, @apiVersion, @metadata {
      /**Kind is a string value representing the REST resource this object represents. Servers may
       infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase.
